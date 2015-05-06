@@ -28,27 +28,27 @@ civic = User.create!(username: Faker::Internet.user_name,
 
 
 
-  question = user.questions.create!( title: Faker::Lorem.word
-                                     body: Faker::Lorem.paragraph
+  question = user.questions.create!( title: Faker::Lorem.word,
+                                     body: Faker::Lorem.paragraph,
                                      programming_language:
                                      )
-  question.question_votes.create!(  value: [1, -1].sample
-                                    user_id: civic.id
+  question.question_votes.create!(  value: [1, -1].sample,
+                                    voter_id: civic.id
                                     )
-  question.question_comments.create!( comment: Faker::Lorem.sentence
-                                      user_id: troll.id
+  question.question_comments.create!( comment: Faker::Lorem.sentence,
+                                      commenter_id: troll.id
                                       )
 
 
-  answer = question.answers.create!( title: Faker::Lorem.word
-                                     body: Faker::Lorem.paragraph
-                                     user_id: mentor.id
+  answer = question.answers.create!( title: Faker::Lorem.word,
+                                     body: Faker::Lorem.paragraph,
+                                     answerer_id: mentor.id
                                      )
-  answer.answer_votes.create!( value: [1, -1].sample
-                               user_id: civic.id
+  answer.answer_votes.create!( value: [1, -1].sample,
+                               voter_id: civic.id
                                )
-  question.question_comments.create!( comment: Faker::Lorem.sentence
-                                      user_id: troll.id
+  question.question_comments.create!( comment: Faker::Lorem.sentence,
+                                      commenter_id: troll.id
                                       )
 
 end
