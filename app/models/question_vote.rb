@@ -1,3 +1,5 @@
 class QuestionVote < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to :voter, class_name: "User"
+
+  validates_presence_of :value
 end
