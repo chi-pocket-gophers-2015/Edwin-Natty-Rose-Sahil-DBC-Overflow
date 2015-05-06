@@ -14,55 +14,60 @@ end
 
 ###### USERS ######
 
-get '/user/login' do
+get '/users/login' do
   # what it says
 end
 
-get '/user/logout' do
+get '/users/logout' do
   # optional
 end
 
-get '/user/new' do
-  # generate and save new user
+get '/users/new' do
+  # show the new user form
+  # redirect to /view after
+end
+
+post '/users' do
+  # send new user to database
   # redirect to /view after
 end
 
 
 ###### QUESTIONS & ANSWERS ######
 
-get '/question' do
+get '/questions' do
   # Show all questions
 end
 
-get '/question/:id' do
+get '/questions/:id' do
   # Show a question with its answers and comments
 end
 
 
 ###### AUTHENTICATE ######
 
-before '/question/*' do
-  # check user authentication
-  # This should check everything 'below' question
-end
+# before '/questions/*' do            # Authenticate will show/hide edit not prevent access
+#   # check user authentication
+#   # This should check everything 'below' question
+# end
 
 
 ####### AUTHENTICATED Q & A ######
 
-get '/question/add' do
+get '/questions/new' do
   # get form to add new question
 end
 
-post '/question' do
+post '/questions' do
   # create new Q object in DB
   # redirects /question
 end
 
-get '/question/:id/answer' do
-  # gets form to add a new ans to the specific Q
-end
+# get '/questions/:id/answers' do
+#   # gets form to add a new ans to the specific Q
+# end
 
-post '/question/:id/answer' do
+post '/questions/:id/answers' do
   # create new A object in DB
   # redirects to /question
 end
@@ -70,21 +75,21 @@ end
 
 ###### COMMENTS ######
 
-get '/question/:id/comment' do
+get '/questions/:id/comments/new' do
   # gets form to add a new comment to the specific Q
 end
 
-post '/question/:question_id/comment/:id' do
+post '/questions/:question_id/comments' do
   # create a new Q-comment obj in DB
   # redirects to /question
 end
 
-get '/question/:question_id/answer/:answer_id/comment' do
-  # create a new A-comment obj in DB
-  # redirects to /question
-end
+# get '/questions/:question_id/answers/:answer_id/comments' do
+#   # create a new A-comment obj in DB
+#   # redirects to /question
+# end
 
-post '/question/:question_id/answer/:answer_id/comment/:id' do
+post '/questions/:question_id/answers/:answer_id/comments' do
   # create a new A-comment obj in DB
   # redirects to /question
 end
@@ -92,10 +97,10 @@ end
 
 ###### VOTING ######
 
-post '/question/:id/vote' do
+post '/questions/:id/votes' do
   # creates a new vote on the question
 end
 
-post '/question/:question_id/answer/:id/vote' do
+post '/questions/:question_id/answers/:id/votes' do
   # creates a new vote on the answer
 end
