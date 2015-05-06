@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
   # Remember to create a migration!
-  belongs_to :asker, class_name: "User", foreign_key: user_id
+  belongs_to :asker, class_name: "User"
   has_many :answers
   has_many :question_votes
   has_many :question_comments

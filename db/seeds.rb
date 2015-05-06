@@ -1,21 +1,21 @@
-#generate users
+require 'Faker'
 
 mentor = User.create!(username: Faker::Internet.user_name,
                       email: Faker::Internet.email,
                       password_digest: Faker::Internet.password,
-                      biography: Faker::Lorem.sentences
+                      bio: Faker::Lorem.sentences
                       )
 
 troll = User.create!(username: Faker::Internet.user_name,
                      email: Faker::Internet.email,
                      password_digest: Faker::Internet.password,
-                     biography: Faker::Lorem.sentences
+                     bio: Faker::Lorem.sentences
                      )
 
 civic = User.create!(username: Faker::Internet.user_name,
                      email: Faker::Internet.email,
                      password_digest: Faker::Internet.password,
-                     biography: Faker::Lorem.sentences
+                     bio: Faker::Lorem.sentences
                      )
 
 
@@ -23,17 +23,17 @@ civic = User.create!(username: Faker::Internet.user_name,
   user = User.create!(username: Faker::Internet.user_name,
                       email: Faker::Internet.email,
                       password_digest: Faker::Internet.password,
-                      biography: Faker::Lorem.sentences
+                      bio: Faker::Lorem.sentences
                       )
 
 
 
   question = user.questions.create!( title: Faker::Lorem.word,
                                      body: Faker::Lorem.paragraph,
-                                     programming_language:
+                                     programming_language: "JavaScript"
                                      )
   question.question_votes.create!(  value: [1, -1].sample,
-                                    voter_id: civic.id
+                                    voter: civic
                                     )
   question.question_comments.create!( comment: Faker::Lorem.sentence,
                                       commenter_id: troll.id
