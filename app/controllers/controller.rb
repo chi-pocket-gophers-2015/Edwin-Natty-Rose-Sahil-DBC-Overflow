@@ -16,6 +16,9 @@ end
 
 get '/users/login' do
   # what it says
+
+
+
 end
 
 get '/users/logout' do
@@ -28,6 +31,9 @@ get '/users/new' do
 end
 
 post '/users' do
+    @user = User.new(params[:user])
+    @user.password = params[:password]
+    @user.save!
   # send new user to database
   # redirect to /view after
 end
@@ -49,6 +55,15 @@ end
 # before '/questions/*' do            # Authenticate will show/hide edit not prevent access
 #   # check user authentication
 #   # This should check everything 'below' question
+
+# redirect '/' unless current_user
+
+  @user = User.find_by_email(params[:email])
+  if @user.password == params[:password]
+    # sessions[:user] = @user.id
+  else
+    #redirect '/'
+  end
 # end
 
 

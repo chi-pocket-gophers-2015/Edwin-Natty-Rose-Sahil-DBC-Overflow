@@ -3,19 +3,19 @@
 mentor = User.create!(username: Faker::Internet.user_name,
                 email: Faker::Internet.email,
                 password_digest: Faker::Internet.password,
-                biography: Faker::Lorem.sentences
+                bio: Faker::Lorem.sentences
     )
 
 troll = User.create!(username: Faker::Internet.user_name,
                 email: Faker::Internet.email,
                 password_digest: Faker::Internet.password,
-                biography: Faker::Lorem.sentences
+                bio: Faker::Lorem.sentences
     )
 
 civic = User.create!(username: Faker::Internet.user_name,
                 email: Faker::Internet.email,
                 password_digest: Faker::Internet.password,
-                biography: Faker::Lorem.sentences
+                bio: Faker::Lorem.sentences
     )
 
 
@@ -23,7 +23,7 @@ civic = User.create!(username: Faker::Internet.user_name,
   user = User.create!(username: Faker::Internet.user_name,
                 email: Faker::Internet.email,
                 password_digest: Faker::Internet.password,
-                biography: Faker::Lorem.sentences
+                bio: Faker::Lorem.sentences
     )
 
 
@@ -35,7 +35,7 @@ civic = User.create!(username: Faker::Internet.user_name,
   question.question_votes.create!(  value: [1, -1].sample
                                     user_id: civic.id
     )
-  question.question_comments.create!( entry: Faker::Lorem.sentence
+  question.question_comments.create!( comment: Faker::Lorem.sentence
                                       user_id: troll.id
     )
 
@@ -47,7 +47,7 @@ civic = User.create!(username: Faker::Internet.user_name,
   answer.answer_votes.create!( value: [1, -1].sample
                                 user_id: civic.id
     )
-  question.question_comments.create!( entry: Faker::Lorem.sentence
+  question.question_comments.create!( comment: Faker::Lorem.sentence
                                       user_id: troll.id
     )
 
