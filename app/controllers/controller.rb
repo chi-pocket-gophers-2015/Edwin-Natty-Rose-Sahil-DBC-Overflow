@@ -53,7 +53,7 @@ get '/question/add' do
   # get form to add new question
 end
 
-post '/question/add' do
+post '/question' do
   # create new Q object in DB
   # redirects /question
 end
