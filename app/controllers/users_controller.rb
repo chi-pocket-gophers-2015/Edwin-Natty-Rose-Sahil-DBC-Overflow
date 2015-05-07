@@ -18,7 +18,8 @@ end
 
 
 get '/users/logout' do
-  # optional
+  session[:user_id].delete
+  redirect '/questions'
 end
 
 get '/users/new' do
