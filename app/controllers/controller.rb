@@ -8,20 +8,14 @@ end
 get '/questions/new' do
   # get form to add new question
 
-  erb :create_new_question
+  :"/questions_and_answers/create_question"
 end
 
 post '/questions' do
-  if current_user
-    title = params[:title]
-    body = params[:body]
-    programming_language = params[:programming_language]
-    @question = Question.create!(title: title, body: body, programming_language: programming_language)
 
-    redirect ('/questions')
-  else
+  Question.create(title: params[:title], body: params[:body], programming_language: params[:programming_language])
+  redirect ('/questions')
 
-  end
 end
 
 get '/questions' do
@@ -57,10 +51,19 @@ end
 #   # redirects /question
 # end
 
-post '/questions/:id/answers' do
-  # create new A object in DB
-  # redirects to /question
+get '/questions/:id/answers/new' do
+  # Question.
+  # @question = params[:id]
+  @question = Question.find_by_id(params[:id])
+
+  erb :"/questions_and_answers/create_answer"
 end
 
 
+post '/questions/:id/answers' do
+  # create new A object in DB
+  Answer.create(title: params[:title], body: params[:body])
 
+  redirect ('/questions')
+
+end
