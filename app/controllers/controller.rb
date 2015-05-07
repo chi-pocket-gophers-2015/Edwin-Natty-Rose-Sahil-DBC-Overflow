@@ -34,6 +34,19 @@ get '/questions/:id' do
 end
 
 
+post '/questions/:id/answers' do
+  if current_user
+    Answer.create(title: params[:title], body: params[:body], answerer_id: current_user.id, question_id: params[:id] )
+    redirect ('/questions')
+  else
+    redirect "/users/new"
+  end
+
+  user = current_user
+  current_question(current_user, id)
+end
+
+
 get '/questions/:id/answers/new' do
   if current_user
     @question = Question.find_by_id(params[:id])
@@ -44,11 +57,4 @@ get '/questions/:id/answers/new' do
 end
 
 
-post '/questions/:id/answers' do
-  if current_user
-    Answer.create(title: params[:title], body: params[:body], answerer_id: current_user.id, question_id: params[:id] )
-    redirect ('/questions')
-  else
-    redirect "/users/new"
-  end
-end
+

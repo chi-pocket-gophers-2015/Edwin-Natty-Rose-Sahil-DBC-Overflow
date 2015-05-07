@@ -3,7 +3,7 @@
 <h3>Post an answer to the following question:</h3>
   <p><%=@question.title%></p>
   <p><%=@question.body%></p>
-<form action="/questions/:id/answers" method="post">
+<form action="/questions/<%=@question.id%>/answers" method="post">
   <p>Answer Title:</p>
   <input type="text" name="title">
   <p>Answer Body:</p>
