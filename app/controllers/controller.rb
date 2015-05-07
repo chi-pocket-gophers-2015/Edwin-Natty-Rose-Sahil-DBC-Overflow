@@ -21,7 +21,7 @@ end
 get '/questions' do
   # Show all questions
   @questions = Question.all
-  erb :show_questions
+  erb :'questions_and_answers/show_questions'
 end
 
 ###### QUESTIONS & ANSWERS ######
