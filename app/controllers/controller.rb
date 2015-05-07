@@ -5,38 +5,7 @@ get '/' do
   # two buttons: view all posts, add a post
   ### redirect to view for one button
   ### redirect to login
-
-  # OR
-
-  #display all Q w/ A and comments  => this allows use of 'before' for authentication
 end
-
-
-###### USERS ######
-
-# get '/users/login' do
-#   # what it says
-
-
-
-# end
-
-# get '/users/logout' do
-#   # optional
-# end
-
-# get '/users/new' do
-#   # show the new user form
-#   # redirect to /view after
-# end
-
-# post '/users' do
-#     @user = User.new(params[:user])
-#     @user.password = params[:password]
-#     @user.save!
-#   # send new user to database
-#   # redirect to /view after
-# end
 
 
 ###### QUESTIONS & ANSWERS ######
@@ -50,23 +19,6 @@ get '/questions/:id' do
 end
 
 
-###### AUTHENTICATE ######
-
-# before '/questions/*' do            # Authenticate will show/hide edit not prevent access
-#   # check user authentication
-#   # This should check everything 'below' question
-
-# redirect '/' unless current_user
-
-  # @user = User.find_by_email(params[:email])
-  # if @user.password == params[:password]
-  #   # sessions[:user] = @user.id
-  # else
-  #   #redirect '/'
-  # end
-# end
-
-
 ####### AUTHENTICATED Q & A ######
 
 get '/questions/new' do
@@ -76,12 +28,7 @@ end
 post '/questions' do
   # create new Q object in DB
   # redirects /question
-  puts "hiya"
 end
-
-# get '/questions/:id/answers' do
-#   # gets form to add a new ans to the specific Q
-# end
 
 post '/questions/:id/answers' do
   # create new A object in DB
@@ -99,11 +46,6 @@ post '/questions/:question_id/comments' do
   # create a new Q-comment obj in DB
   # redirects to /question
 end
-
-# get '/questions/:question_id/answers/:answer_id/comments' do
-#   # create a new A-comment obj in DB
-#   # redirects to /question
-# end
 
 post '/questions/:question_id/answers/:answer_id/comments' do
   # create a new A-comment obj in DB

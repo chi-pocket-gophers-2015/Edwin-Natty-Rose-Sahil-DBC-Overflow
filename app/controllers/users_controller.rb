@@ -18,7 +18,7 @@ end
 post '/users' do
   user = User.new(params[:user])
   if user.save
-    session[:user] = user.id
+    session[:user_id] = user.id
     redirect '/questions'
   else
     @error = 'Login Failed'
