@@ -13,7 +13,6 @@ post '/users/login' do
     @error = 'Login Failed'
     erb :'/users/login_user'
   end
-
 end
 
 
@@ -36,7 +35,7 @@ post '/users' do
     redirect '/questions'
   else
     @error = 'Login Failed'
-    erb :'/user/create_user'
+    erb :'/users/create_user'
   end
 
   # send new user to database

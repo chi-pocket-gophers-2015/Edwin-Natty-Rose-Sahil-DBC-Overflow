@@ -1,5 +1,5 @@
 enable :sessions
-###### INDEX ######
+
 
 get '/' do
   erb :home
@@ -35,22 +35,6 @@ get '/questions/:id' do
   # Show a question with its answers and comments
 end
 
-
-####### AUTHENTICATED Q & A ######
-
-# get '/questions/new' do
-#   # get form to add new question
-#   # title = params[:title]
-#   # body = params[:body]
-#   # @question = Question.create(title: title, body: body)
-#   p "hello"
-#   erb :new
-# end
-
-# post '/questions' do
-#   # create new Q object in DB
-#   # redirects /question
-# end
 
 get '/questions/:id/answers/new' do
   # Question.
