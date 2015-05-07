@@ -1,5 +1,5 @@
+enable :sessions
 
-###### INDEX ######
 
 get '/' do
   erb :home
@@ -8,7 +8,7 @@ end
 get '/questions/new' do
   # get form to add new question
 
-  :"/questions_and_answers/create_question"
+  erb :'/questions_and_answers/create_new_question'
 end
 
 post '/questions' do
@@ -21,6 +21,7 @@ end
 get '/questions' do
   # Show all questions
   @questions = Question.all
+  @answers = Answer.all
   erb :'questions_and_answers/show_questions'
 end
 
@@ -35,22 +36,6 @@ get '/questions/:id' do
 end
 
 
-####### AUTHENTICATED Q & A ######
-
-# get '/questions/new' do
-#   # get form to add new question
-#   # title = params[:title]
-#   # body = params[:body]
-#   # @question = Question.create(title: title, body: body)
-#   p "hello"
-#   erb :new
-# end
-
-# post '/questions' do
-#   # create new Q object in DB
-#   # redirects /question
-# end
-
 get '/questions/:id/answers/new' do
   # Question.
   # @question = params[:id]
@@ -62,7 +47,7 @@ end
 
 post '/questions/:id/answers' do
   # create new A object in DB
-  Answer.create(title: params[:title], body: params[:body])
+  Answer.create(title: params[:title], body: params[:body], answerer_id: sessions[:user_id], question_id: params[:id] )
 
   redirect ('/questions')
 

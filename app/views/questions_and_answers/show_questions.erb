@@ -1,6 +1,6 @@
 <h1>SOOOOO FLOW</h1>
 <% @questions.each do |question| %>
-<div class="container">
+  <h3>Question:</h3>
   <h2>
     <a href='/questions/<%=question.id%>'><%= question.title %> </a>
   </h2>
@@ -10,11 +10,24 @@
   <br>
   <%= question.body %>
   <%= question.programming_language %>
-    <p><a href="/questions/<%=question.id%>/answers/new">Respond with an Answer</a></p>
+
+  <div class="answer">
+    <h3>Answers to date:</h3>
+    <% @answers.each do |ans| %>
+     <% if ans.question_id == question.id %>
+      <h3><%= ans.title %></h3>
+      <p><%= ans.created_at %></p>
+      <p><%= ans.body %></p>
+  <div class="answer">
+<p><a href="/questions/<%=question.id%>
+  /answers/new">Respond with an Answer</a></p>
+
+
+    <!-- <p><%# Answer.question.body %></p> -->
   </div>
   <% end %>
-
-  <div class="container">
+<% end %>
+<% end %>
   <br>
     <a href="/questions/new"><h3>Ask a question!</h3></a>
   </div>
