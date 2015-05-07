@@ -14,29 +14,29 @@ end
 
 ###### USERS ######
 
-get '/users/login' do
-  # what it says
+# get '/users/login' do
+#   # what it says
 
 
 
-end
+# end
 
-get '/users/logout' do
-  # optional
-end
+# get '/users/logout' do
+#   # optional
+# end
 
-get '/users/new' do
-  # show the new user form
-  # redirect to /view after
-end
+# get '/users/new' do
+#   # show the new user form
+#   # redirect to /view after
+# end
 
-post '/users' do
-    @user = User.new(params[:user])
-    @user.password = params[:password]
-    @user.save!
-  # send new user to database
-  # redirect to /view after
-end
+# post '/users' do
+#     @user = User.new(params[:user])
+#     @user.password = params[:password]
+#     @user.save!
+#   # send new user to database
+#   # redirect to /view after
+# end
 
 
 ###### QUESTIONS & ANSWERS ######
@@ -58,12 +58,12 @@ end
 
 # redirect '/' unless current_user
 
-  @user = User.find_by_email(params[:email])
-  if @user.password == params[:password]
-    # sessions[:user] = @user.id
-  else
-    #redirect '/'
-  end
+  # @user = User.find_by_email(params[:email])
+  # if @user.password == params[:password]
+  #   # sessions[:user] = @user.id
+  # else
+  #   #redirect '/'
+  # end
 # end
 
 
@@ -76,6 +76,7 @@ end
 post '/questions' do
   # create new Q object in DB
   # redirects /question
+  puts "hiya"
 end
 
 # get '/questions/:id/answers' do
