@@ -16,12 +16,16 @@ get '/questions/new' do
 end
 
 post '/questions' do
-  title = params[:title]
-  body = params[:body]
-  programming_language = params[:programming_language]
-  @question = Question.create!(title: title, body: body, programming_language: programming_language)
+  if current_user
+    title = params[:title]
+    body = params[:body]
+    programming_language = params[:programming_language]
+    @question = Question.create!(title: title, body: body, programming_language: programming_language)
 
-  redirect ('/questions')
+    redirect ('/questions')
+  else
+
+  end
 end
 
 get '/questions' do

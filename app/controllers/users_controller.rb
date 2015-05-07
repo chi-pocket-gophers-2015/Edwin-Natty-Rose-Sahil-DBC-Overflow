@@ -18,7 +18,7 @@ end
 
 
 get '/users/logout' do
-  session[:user_id].delete
+  session.delete(:user_id)
   redirect '/questions'
 end
 
