@@ -12,6 +12,26 @@
 
   <p>Current Answers:</p>
   <% @answers.each do |answer| %>
+
+<table>
+<tr>
+  <td><a href='/questions/<%= answer.question.id %> /answers/<%=answer.id%>/upvotes'>
+    <img src="http://coloradoclt.org/blog/wp-content/uploads/2013/01/thumbs-up-icon-black-hi.png" alt="upvote" style="width:42px;height:42px;border:0">
+  </a></td>
+  <td>&emsp;</td>
+  <td><a href='/questions/<%= answer.question.id %> /answers/<%=answer.id%>/downvotes'>
+    <img src="http://uxrepo.com/static/icon-sets/font-awesome/svg/thumbs-down-alt.svg" alt="downvote" style="width:42px;height:42px;border:0">
+  </a></td>
+</tr>
+<tr>
+  <td><%= answer.upcounts %></td>
+  <td>&emsp;</td>
+  <td><%= answer.downcounts %></td>
+</tr>
+</table>
+
+
+
   <p>
   <%= answer.created_at %>
   <%= answer.title %>
@@ -27,5 +47,10 @@
     <a href="/questions/new"><h3>Ask a question!</h3></a>
   </div>
 
+
+### controler
+
+@votes = Question_Votes.where(question_id)
+vote_count = @votes.inject{:+}
 
 
