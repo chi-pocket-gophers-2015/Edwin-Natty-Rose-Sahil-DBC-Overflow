@@ -46,7 +46,7 @@ end
 
 post '/questions/:id/answers' do
   if current_user
-    Answer.create(title: params[:title], body: params[:body], answerer_id: sessions[:user_id], question_id: params[:id] )
+    Answer.create(title: params[:title], body: params[:body], answerer_id: current_user.id, question_id: params[:id] )
     redirect ('/questions')
   else
     redirect "/users/new"
