@@ -33,6 +33,4 @@ class User < ActiveRecord::Base
     self.password_digest = @password
   end
 
-
-
 end

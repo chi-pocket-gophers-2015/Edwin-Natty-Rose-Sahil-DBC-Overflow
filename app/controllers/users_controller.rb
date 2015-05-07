@@ -1,7 +1,19 @@
 enable :sessions
 
 get '/users/login' do
-  # what it says
+  erb :'users/login_user'
+end
+
+
+post '/users/login' do
+  if user = User.authenticate(params[:user][:email], params[:user][:password])
+    session[:user_id] = user.id
+    redirect '/questions'
+  else
+    @error = 'Login Failed'
+    erb :'/users/login_user'
+  end
+
 end
 
 
@@ -14,6 +26,7 @@ get '/users/new' do
   # redirect to /view after
   erb :'users/create_user'
 end
+
 
 post '/users' do
   user = User.new(params[:user])

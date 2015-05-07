@@ -9,7 +9,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title>Sign Up For SO-Glow</title>
+  <title>Welcome to SO-Glow, Please Log In</title>
 </head>
 <body>
 
@@ -18,16 +18,11 @@
     <%= @error %>
   </div>
 
-  <form method='post' action='/users'>
-    Enter username: <input type="text" name="user[username]" placeholder="required"><br>
+  <form method='post' action='/users/login'>
     Enter email: <input type="text" name="user[email]" placeholder="required"><br>
-    Enter password: <input type="password" name="user[password]" placeholder="required"><br>
+    Enter password: <input type="password" name="user[password]" placeholder="required">
     <br>
-    <textarea rows="5" cols="40" name="user[bio]" placeholder="optional bio"></textarea>
-    <br>
-    <input type='submit' value='Create Your Account'>
-
-
+    <input type='submit' value='Log In!!!!!'>
   </form>
 
 
@@ -36,4 +31,3 @@
 
 </body>
 </html>
-
