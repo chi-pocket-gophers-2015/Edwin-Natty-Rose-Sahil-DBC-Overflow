@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="stylesheet" href="/css/normalize.css">
+
+  <link rel="stylesheet" href="/css/application.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+
+  <title>Welcome to SO-Glow, Please Log In</title>
+</head>
+<body>
+
+<div class='container'>
+  <div class='errors'>
+    <%= @error %>
+  </div>
+
+  <form method='post' action='/users/login'>
+    Enter email: <input type="text" name="user[email]" placeholder="required"><br>
+    Enter password: <input type="password" name="user[password]" placeholder="required">
+    <br>
+    <input type='submit' value='Log In!!!!!'>
+  </form>
+
+
+</div>
+
+
+</body>
+</html>

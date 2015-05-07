@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="stylesheet" href="/css/normalize.css">
+
+  <link rel="stylesheet" href="/css/application.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+
+  <title>Sign Up For SO-Glow</title>
+</head>
+<body>
+
+<div class='container'>
+  <div class='errors'>
+    <%= @error %>
+  </div>
+
+  <form method='post' action='/users'>
+    Enter username: <input type="text" name="user[username]" placeholder="required"><br>
+    Enter email: <input type="text" name="user[email]" placeholder="required"><br>
+    Enter password: <input type="password" name="user[password]" placeholder="required"><br>
+    <br>
+    <textarea rows="5" cols="40" name="user[bio]" placeholder="optional bio"></textarea>
+    <br>
+    <input type='submit' value='Create Your Account'>
+
+
+  </form>
+
+
+</div>
+
+
+</body>
+</html>
+
