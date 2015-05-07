@@ -28,7 +28,7 @@ civic = User.create!(username: Faker::Internet.user_name,
 
 
 
-  question = user.questions.create!( title: Faker::Lorem.word,
+  question = user.questions.create!( title: Faker::Lorem.sentence,
                                      body: Faker::Lorem.paragraph,
                                      programming_language: "JavaScript"
                                      )
@@ -40,7 +40,7 @@ civic = User.create!(username: Faker::Internet.user_name,
                                       )
 
 
-  answer = question.answers.create!( title: Faker::Lorem.word,
+  answer = question.answers.create!( title: Faker::Lorem.sentence,
                                      body: Faker::Lorem.paragraph,
                                      answerer_id: mentor.id
                                      )
