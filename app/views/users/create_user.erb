@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>Sign Up For SO-Glow</title>
+</head>
+<body>
+
+<div class='container'>
+  <div class='errors'>
+    <%= @error %>
+  </div>
+
+<h1>Create a New User</h1>
+<h2>(or <a href="/users/login">log in</a>)</h2>
+
+  <form method='post' action='/users'>
+    Enter username: <input type="text" name="user[username]" placeholder="required"><br>
+    Enter email: <input type="text" name="user[email]" placeholder="required"><br>
+    Enter password: <input type="password" name="user[password]" placeholder="required"><br>
+    <br>
+    <textarea rows="5" cols="40" name="user[bio]" placeholder="optional bio"></textarea>
+    <br>
+    <input type='submit' value='Create Your Account'>
+
+
+  </form>
+
+
+</div>
+
+
+</body>
+</html>
+
