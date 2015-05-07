@@ -1,0 +1,20 @@
+<h1>SOOOOO FLOW</h1>
+<div class="container">
+  <h2>
+    <%= @question.title %>
+  </h2>
+  <em>
+    <%= @question.created_at %>
+  </em>
+  <br>
+  <%= @question.body %>
+  <%= @question.programming_language %>
+    <p><a href="/questions/<%=@question.id%>/answers/new">Respond with an Answer</a></p>
+  </div>
+
+  <div class="container">
+  <br>
+    <a href="/questions/new"><h3>Ask a question!</h3></a>
+  </div>
+
+

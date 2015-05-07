@@ -1,21 +1,19 @@
 
-###### INDEX ######
-
 get '/' do
   erb :home
 end
 
 get '/questions/new' do
-  # get form to add new question
-
-  :"/questions_and_answers/create_question"
+  if current_user# get form to add new question
+    erb :"/questions_and_answers/create_new_question"
+  else
+    redirect '/users/new'
+  end
 end
 
 post '/questions' do
-
   Question.create(title: params[:title], body: params[:body], programming_language: params[:programming_language])
   redirect ('/questions')
-
 end
 
 get '/questions' do
@@ -24,14 +22,9 @@ get '/questions' do
   erb :'questions_and_answers/show_questions'
 end
 
-###### QUESTIONS & ANSWERS ######
-
-get '/questions' do
-  # Show all questions
-end
-
 get '/questions/:id' do
-  # Show a question with its answers and comments
+  @question = Question.find_by_id(params[:id])
+  erb :'questions_and_answers/show_question'
 end
 
 
