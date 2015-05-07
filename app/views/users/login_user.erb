@@ -11,6 +11,9 @@
     <%= @error %>
   </div>
 
+  <h1>Please Log In</h1>
+<h2>(or <a href="/users/new">create an account</a>)</h2>
+
   <form method='post' action='/users/login'>
     Enter email: <input type="text" name="user[email]" placeholder="required"><br>
     Enter password: <input type="password" name="user[password]" placeholder="required">
