@@ -1,0 +1,35 @@
+<h1>SOOOOO FLOW</h1>
+<div class="container">
+  <% @questions.each do |question| %>
+
+    <a href="#">
+        <img src="http://coloradoclt.org/blog/wp-content/uploads/2013/01/thumbs-up-icon-black-hi.png" alt="upvote" style="width:42px;height:42px;border:0">
+    </a>
+    <p><%="#{upvote.value}"%></p>
+     <a href="#">
+        <img src="http://uxrepo.com/static/icon-sets/font-awesome/svg/thumbs-down-alt.svg" alt="downvote" style="width:42px;height:42px;border:0">
+    </a>
+      <h3>Question:</h3>
+
+      <h2><a href='/questions/<%=question.id%>'><%= question.title %> </a></h2>
+      <em><%= question.created_at %></em>
+      <br>
+
+      <%= question.body %>
+      <%= question.programming_language %>
+
+      <p>
+        <a href="/questions/<%=question.id%>/answers/new">Respond with an Answer</a>
+      </p>
+
+      <hr>
+
+    <% end %>
+
+</div>
+
+  <br>
+
+<a href="/questions/new"><h3>Ask a question!</h3></a>
+
+

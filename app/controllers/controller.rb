@@ -23,6 +23,7 @@ get '/questions' do
   # Show all questions
   @questions = Question.all
   @answers = Answer.all
+
   erb :'questions_and_answers/show_questions'
 end
 
