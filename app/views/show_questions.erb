@@ -1,0 +1,21 @@
+<h1>SOOOOO FLOW</h1>
+<% @questions.each do |question| %>
+<div class="container">
+  <h2>
+    <a href='/questions/<%=question.id%>'><%= question.title %> </a>
+  </h2>
+  <em>
+    <%= question.created_at %>
+  </em>
+  <br>
+  <%= question.body %>
+  <%= question.programming_language %>
+  </div>
+  <% end %>
+
+  <div class="container">
+  <br>
+    <a href="/questions/new"><h3>Ask a question!</h3></a>
+  </div>
+
+
