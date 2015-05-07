@@ -2,13 +2,14 @@
 <div class="container">
   <% @questions.each do |question| %>
 
-    <a href="#">
+    <a href="/questions/:id/upvotes">
         <img src="http://coloradoclt.org/blog/wp-content/uploads/2013/01/thumbs-up-icon-black-hi.png" alt="upvote" style="width:42px;height:42px;border:0">
     </a>
-    <p><%="#{upvote.value}"%></p>
-     <a href="#">
+    <p><%="#{question.up_vote_count}"%></p>
+     <a href="/questions/:id/downvotes">
         <img src="http://uxrepo.com/static/icon-sets/font-awesome/svg/thumbs-down-alt.svg" alt="downvote" style="width:42px;height:42px;border:0">
     </a>
+    <p><%="#{question.down_vote_count}"%></p>
       <h3>Question:</h3>
 
       <h2><a href='/questions/<%=question.id%>'><%= question.title %> </a></h2>

@@ -8,4 +8,15 @@ class Question < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :body
 
+  def up_vote_count
+    array = self.question_votes
+    upvotes = array.select{|i| i.value == 1 }
+    upvotes.length
+  end
+
+  def down_vote_count
+    array = self.question_votes
+    upvotes = array.select{|i| i.value == -1 }
+    upvotes.length
+  end
 end
