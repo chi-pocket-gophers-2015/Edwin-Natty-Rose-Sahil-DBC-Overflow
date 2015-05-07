@@ -1,0 +1,16 @@
+<div class="container">
+<h1>SOOOOO FLOW</h1>
+<h3>Post an answer to the following question:</h3>
+  <p><%=@question.title%></p>
+  <p><%=@question.body%></p>
+<form action="/questions/:id/answers" method="post">
+  <p>Answer Title:</p>
+  <input type="text" name="title">
+  <p>Answer Body:</p>
+  <textarea row="10" cols="50" name="body">
+  Tell us what you think they should do to solve the problem.
+  </textarea><br>
+  <input type="submit"  value="Post an answer">
+</form>
+  <br>
+</div>
